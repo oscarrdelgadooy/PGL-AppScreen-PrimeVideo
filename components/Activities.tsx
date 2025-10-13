@@ -23,11 +23,12 @@ const styles = StyleSheet.create({
     height: 38,
     width: 80,
     borderRadius: 25,
-    borderWidth: 1,
-    borderColor: "gray",
+    borderWidth: 2,
+    borderColor: "#524c4c5d",
     justifyContent: "center",
     alignItems: "center",
-    margin: 3
+    margin: 3,
+    marginBottom: 20,
   },
 
   buttonText: {

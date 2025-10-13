@@ -1,21 +1,47 @@
-import { StyleSheet, View, ScrollView } from "react-native";
+import { StyleSheet, View, ScrollView, Image } from "react-native";
 import Header from "./components/Header";
 import Activities from "./components/Activities";
+import MovieBanner from "./components/MovieBanner";
+import { useState } from "react";
 
 export default function App() {
   const categoriesList = ["Movies", "TV Shows", "Sports", "Live TV", "Series"];
+
+  const imagenes = [
+    require("./assets/hotel_costiera.png"),
+    require("./assets/play_dirty.jpg"),
+    require("./assets/stranger_things.jpg"),
+    require("./assets/shameless.jpg"),
+  ];
+
+  const [randomPic, setRandomPic] = useState(imagenes[0]);
+
+  const randomizarImagen = () => {
+    const indiceAleatorio = Math.floor(Math.random() * imagenes.length);
+    const nuevaImagen = imagenes[indiceAleatorio];
+    setRandomPic(nuevaImagen);
+  };
 
   return (
     <View style={styles.container}>
       <Header></Header>
 
-      <ScrollView style={styles.activities} horizontal={true} >
+      <View style={styles.scrollview} >
+      <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
         {categoriesList.map((category) => (
-          <Activities activity={category}></Activities>
+          <Activities key={category} activity={category}></Activities>
         ))}
       </ScrollView>
+      </View>
 
-      
+
+
+      <View style={styles.banner}>
+        <MovieBanner
+          path={randomPic}
+          FuncRandom={randomizarImagen}
+        ></MovieBanner>
+      </View>
     </View>
   );
 }
@@ -26,9 +52,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
   },
 
-  activities: {
-    height: 65,
-    backgroundColor: "#000",
-    flexDirection: "row",
+  scrollview:{
+    height: 65
   },
+
+  banner:{
+    height: 200,
+  },
+
+
 });
