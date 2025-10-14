@@ -1,8 +1,10 @@
-import { StyleSheet, View, ScrollView, Image } from "react-native";
+import { StyleSheet, View, ScrollView, Image, Text } from "react-native";
 import Header from "./components/Header";
 import Activities from "./components/Activities";
 import MovieBanner from "./components/MovieBanner";
 import { useState } from "react";
+import Movie from "./components/Movie";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function App() {
   const categoriesList = ["Movies", "TV Shows", "Sports", "Live TV", "Series"];
@@ -26,15 +28,13 @@ export default function App() {
     <View style={styles.container}>
       <Header></Header>
 
-      <View style={styles.scrollview} >
-      <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
-        {categoriesList.map((category) => (
-          <Activities key={category} activity={category}></Activities>
-        ))}
-      </ScrollView>
+      <View style={styles.scrollview}>
+        <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
+          {categoriesList.map((category) => (
+            <Activities key={category} activity={category}></Activities>
+          ))}
+        </ScrollView>
       </View>
-
-
 
       <View style={styles.banner}>
         <MovieBanner
@@ -42,6 +42,20 @@ export default function App() {
           FuncRandom={randomizarImagen}
         ></MovieBanner>
       </View>
+
+      <View>
+        <Text style={styles.top_movies}>
+          Top movies  
+          <FontAwesome5 name="chevron-right" size={12} color="#a3a3a3ff" />
+        </Text>
+        <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
+          {imagenes.map((imagen) => (
+            <Movie path={imagen}></Movie>
+          ))}
+        </ScrollView>
+      </View>
+
+
     </View>
   );
 }
@@ -52,13 +66,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
   },
 
-  scrollview:{
-    height: 65
+  scrollview: {
+    height: 65,
   },
 
-  banner:{
+  banner: {
     height: 200,
   },
 
-
+  top_movies: {
+    color: "#a3a3a3ff",
+    marginBottom: 10,
+    marginLeft: 7,
+  },
 });

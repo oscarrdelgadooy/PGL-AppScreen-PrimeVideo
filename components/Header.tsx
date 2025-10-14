@@ -13,7 +13,7 @@ const Header = () => {
         <FontAwesome5 name="chromecast" size={24} color="white" />
         <Image
           style={styles.profile}
-          source={require("../assets/FotoPerfil.png")}
+          source={require("../assets/profilePic.jpg")}
         ></Image>
       </View>
     </View>
@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-
     paddingHorizontal: 15,
     paddingTop: 30,
     height: 80,
@@ -47,7 +46,7 @@ const styles = StyleSheet.create({
 
   profile: {
     width: 35,
-    height: 30,
+    height: 35,
     resizeMode: "contain",
     borderRadius: 30,
     marginLeft: 25,
