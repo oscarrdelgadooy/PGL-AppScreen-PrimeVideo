@@ -1,10 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ImageSourcePropType,
-} from "react-native";
+import { StyleSheet, View, Image, ImageSourcePropType } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -49,7 +43,7 @@ const styles = StyleSheet.create({
     bottom: 10,
     right: 10,
     color: "#fff",
-    position: "absolute"
+    position: "absolute",
   },
   gradient: {
     position: "absolute",

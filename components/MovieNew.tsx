@@ -1,10 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ImageSourcePropType,
-} from "react-native";
+import { StyleSheet, View, Image, ImageSourcePropType } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -32,7 +26,7 @@ const styles = StyleSheet.create({
   container: {
     width: 160,
     height: 300,
-    marginRight: 15
+    marginRight: 15,
   },
   size: {
     width: "100%",

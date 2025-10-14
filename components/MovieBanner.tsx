@@ -9,6 +9,7 @@ import {
 import React from "react";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { LinearGradient } from "expo-linear-gradient";
+import color from "../theme/color";
 
 type MovieBannerProps = {
   path: ImageSourcePropType;
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 40,
     fontSize: 12,
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
 
   imageContainer: {
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
     height: "30%",
   },
   buttonContainer: {
-    backgroundColor: "#000",
+    backgroundColor: color.backgroundColor,
   },
   button: {
     alignItems: "center",

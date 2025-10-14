@@ -7,6 +7,7 @@ import Movie from "./components/Movie";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Footer from "./components/Footer";
 import MovieNew from "./components/MovieNew";
+import color from "./theme/color";
 
 export default function App() {
   const categoriesList = ["Movies", "TV Shows", "Sports", "Live TV", "Series"];
@@ -77,7 +78,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: color.backgroundColor,
   },
 
   scrollview: {
@@ -89,9 +90,9 @@ const styles = StyleSheet.create({
   },
 
   top_movies: {
-    color: "#a3a3a3ff",
+    color: color.fontColor,
     marginBottom: 10,
     marginLeft: 7,
-    marginTop: 5
+    marginTop: 5,
   },
 });

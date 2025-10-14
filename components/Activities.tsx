@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
-import { Button } from "@rneui/themed";
 
 type ActivitiesProps = {
   activity: String;
@@ -33,7 +32,6 @@ const styles = StyleSheet.create({
 
   buttonText: {
     color: "#fff",
-    textAlign: 'center',
-
+    textAlign: "center",
   },
 });
