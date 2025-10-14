@@ -5,6 +5,7 @@ import MovieBanner from "./components/MovieBanner";
 import { useState } from "react";
 import Movie from "./components/Movie";
 import { FontAwesome5 } from "@expo/vector-icons";
+import Footer from "./components/Footer";
 
 export default function App() {
   const categoriesList = ["Movies", "TV Shows", "Sports", "Live TV", "Series"];
@@ -45,17 +46,17 @@ export default function App() {
 
       <View>
         <Text style={styles.top_movies}>
-          Top movies  
+          Top movies{"  "}
           <FontAwesome5 name="chevron-right" size={12} color="#a3a3a3ff" />
         </Text>
         <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
           {imagenes.map((imagen) => (
-            <Movie path={imagen}></Movie>
+            <Movie key={imagen} path={imagen}></Movie>
           ))}
         </ScrollView>
       </View>
 
-
+      <Footer></Footer>
     </View>
   );
 }
