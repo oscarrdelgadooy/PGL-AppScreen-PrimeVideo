@@ -6,6 +6,7 @@ import { useState } from "react";
 import Movie from "./components/Movie";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Footer from "./components/Footer";
+import MovieNew from "./components/MovieNew";
 
 export default function App() {
   const categoriesList = ["Movies", "TV Shows", "Sports", "Live TV", "Series"];
@@ -56,6 +57,18 @@ export default function App() {
         </ScrollView>
       </View>
 
+      <View>
+        <Text style={styles.top_movies}>
+          Amazon Originals and Exclusives{"  "}
+          <FontAwesome5 name="chevron-right" size={12} color="#a3a3a3ff" />
+        </Text>
+        <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
+          {imagenes.map((imagen) => (
+            <MovieNew key={imagen} path={imagen}></MovieNew>
+          ))}
+        </ScrollView>
+      </View>
+
       <Footer></Footer>
     </View>
   );
@@ -79,5 +92,6 @@ const styles = StyleSheet.create({
     color: "#a3a3a3ff",
     marginBottom: 10,
     marginLeft: 7,
+    marginTop: 5
   },
 });

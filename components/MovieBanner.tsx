@@ -4,6 +4,7 @@ import {
   Image,
   ImageSourcePropType,
   TouchableOpacity,
+  Text,
 } from "react-native";
 import React from "react";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
@@ -20,14 +21,19 @@ const MovieBanner = ({ path, FuncRandom }: MovieBannerProps) => {
       <View style={styles.imageContainer}>
         <Image source={path} style={styles.photoSize} />
         <LinearGradient
-          colors={[
-            "transparent",
-            "rgba(0,0,0.4)",
-          ]}
+          colors={["transparent", "rgba(0,0,0.4)"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 0, y: 1 }}
           style={styles.gradient}
         />
+
+        <FontAwesome5
+          name="check-circle"
+          size={15}
+          color="blue"
+          style={styles.primeLogo}
+        />
+        <Text style={styles.primeText}>Included with Prime</Text>
       </View>
 
       <View style={styles.buttonContainer}>
@@ -44,6 +50,21 @@ export default MovieBanner;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+
+  primeLogo: {
+    position: "absolute",
+    bottom: 0,
+    left: 20,
+  },
+
+  primeText: {
+    color: "#fff",
+    position: "absolute",
+    bottom: 0,
+    left: 40,
+    fontSize: 12,
+    fontWeight: "bold"
   },
 
   imageContainer: {

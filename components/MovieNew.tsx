@@ -8,11 +8,11 @@ import {
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
-type MovieProps = {
+type MovieNewProps = {
   path: ImageSourcePropType;
 };
 
-const Movie = ({ path }: MovieProps) => {
+const MovieNew = ({ path }: MovieNewProps) => {
   return (
     <View style={styles.container}>
       <Image source={path} style={styles.size} />
@@ -22,34 +22,22 @@ const Movie = ({ path }: MovieProps) => {
         end={{ x: 0, y: 1 }}
         style={styles.gradient}
       />
-      <Image
-        source={require("../assets/miniLogoPrime.png")}
-        style={styles.miniLogoSize}
-      ></Image>
     </View>
   );
 };
 
-export default Movie;
+export default MovieNew;
 
 const styles = StyleSheet.create({
   container: {
-    width: 220,
-    height: 120,
-    marginRight: 15,
+    width: 160,
+    height: 300,
+    marginRight: 15
   },
   size: {
     width: "100%",
     height: "100%",
     borderRadius: 10,
-  },
-  miniLogoSize: {
-    width: 25,
-    height: 15,
-    bottom: 10,
-    right: 10,
-    color: "#fff",
-    position: "absolute"
   },
   gradient: {
     position: "absolute",
