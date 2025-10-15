@@ -1,6 +1,7 @@
 import { StyleSheet, View, Image, ImageSourcePropType } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
+import color from "../theme/color"
 
 type MovieProps = {
   path: ImageSourcePropType;
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
     height: 15,
     bottom: 10,
     right: 10,
-    color: "#fff",
+    color: color.fontColor,
     position: "absolute",
   },
   gradient: {

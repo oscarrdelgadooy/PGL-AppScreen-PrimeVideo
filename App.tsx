@@ -2,11 +2,11 @@ import { StyleSheet, View, ScrollView, Image, Text } from "react-native";
 import Header from "./components/Header";
 import Activities from "./components/Activities";
 import MovieBanner from "./components/MovieBanner";
-import { useState } from "react";
-import Movie from "./components/Movie";
-import { FontAwesome5 } from "@expo/vector-icons";
 import Footer from "./components/Footer";
+import Movie from "./components/Movie";
 import MovieNew from "./components/MovieNew";
+import { useState } from "react";
+import { FontAwesome5 } from "@expo/vector-icons";
 import color from "./theme/color";
 
 export default function App() {

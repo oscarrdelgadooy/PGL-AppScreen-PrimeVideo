@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
+import color from "../theme/color"
 
 type ActivitiesProps = {
   activity: String;
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
     width: 80,
     borderRadius: 25,
     borderWidth: 2,
-    borderColor: "#524c4c5d",
+    borderColor: color.borderActivities,
     justifyContent: "center",
     alignItems: "center",
     margin: 3,

@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   },
 
   primeText: {
-    color: "#fff",
+    color: color.fontColor,
     position: "absolute",
     bottom: 0,
     left: 40,

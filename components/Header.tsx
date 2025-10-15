@@ -1,6 +1,7 @@
 import { StyleSheet, View, Image } from "react-native";
 import React from "react";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import color from "../theme/color"
 
 const Header = () => {
   return (
@@ -10,7 +11,7 @@ const Header = () => {
         source={require("../assets/primeVideoLogo.png")}
       ></Image>
       <View style={styles.rightButtonsContainer}>
-        <FontAwesome5 name="chromecast" size={24} color="white" />
+        <FontAwesome5 name="chromecast" size={24} color={color.headerColor} />
         <Image
           style={styles.profile}
           source={require("../assets/profilePic.jpg")}
