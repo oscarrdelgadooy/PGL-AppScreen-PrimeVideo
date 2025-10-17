@@ -1,7 +1,7 @@
 import { StyleSheet, View, Image } from "react-native";
 import React from "react";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
-import color from "../theme/color"
+import color from "../theme/color";
 
 const Header = () => {
   return (

@@ -1,24 +1,16 @@
-import { StyleSheet, View, ScrollView, Image, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Header from "./components/Header";
-import Activities from "./components/Activities";
 import MovieBanner from "./components/MovieBanner";
 import Footer from "./components/Footer";
-import Movie from "./components/Movie";
-import MovieNew from "./components/MovieNew";
 import { useState } from "react";
-import { FontAwesome5 } from "@expo/vector-icons";
 import color from "./theme/color";
+import ListActivities from "./layout/ListActivities";
+import ListMovies from "./layout/ListMovies";
+import ListMoviesExclusive from "./layout/ListMoviesExclusive";
+import imagenes from "./data/images";
+import categoriesList from "./data/categories";
 
 export default function App() {
-  const categoriesList = ["Movies", "TV Shows", "Sports", "Live TV", "Series"];
-
-  const imagenes = [
-    require("./assets/hotel_costiera.png"),
-    require("./assets/play_dirty.jpg"),
-    require("./assets/stranger_things.jpg"),
-    require("./assets/shameless.jpg"),
-  ];
-
   const [randomPic, setRandomPic] = useState(imagenes[0]);
 
   const randomizarImagen = () => {
@@ -30,45 +22,25 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Header></Header>
+      <ListActivities activityList={categoriesList}></ListActivities>
 
-      <View style={styles.scrollview}>
-        <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
-          {categoriesList.map((category) => (
-            <Activities key={category} activity={category}></Activities>
-          ))}
-        </ScrollView>
-      </View>
+      <MovieBanner
+        path={randomPic}
+        FuncRandom={randomizarImagen}
+        style={styles.banner}
+      ></MovieBanner>
 
-      <View style={styles.banner}>
-        <MovieBanner
-          path={randomPic}
-          FuncRandom={randomizarImagen}
-        ></MovieBanner>
-      </View>
+      <ListMovies
+        title="Top movies"
+        imagenes={imagenes}
+        style_text={styles.top_movies}
+      ></ListMovies>
 
-      <View>
-        <Text style={styles.top_movies}>
-          Top movies{"  "}
-          <FontAwesome5 name="chevron-right" size={12} color="#a3a3a3ff" />
-        </Text>
-        <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
-          {imagenes.map((imagen) => (
-            <Movie key={imagen} path={imagen}></Movie>
-          ))}
-        </ScrollView>
-      </View>
-
-      <View>
-        <Text style={styles.top_movies}>
-          Amazon Originals and Exclusives{"  "}
-          <FontAwesome5 name="chevron-right" size={12} color="#a3a3a3ff" />
-        </Text>
-        <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
-          {imagenes.map((imagen) => (
-            <MovieNew key={imagen} path={imagen}></MovieNew>
-          ))}
-        </ScrollView>
-      </View>
+      <ListMoviesExclusive
+        title="Amazon Originals and Exclusives"
+        imagenes={imagenes}
+        style_text={styles.top_movies}
+      ></ListMoviesExclusive>
 
       <Footer></Footer>
     </View>
@@ -79,10 +51,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: color.backgroundColor,
-  },
-
-  scrollview: {
-    height: 65,
   },
 
   banner: {

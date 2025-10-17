@@ -23,7 +23,7 @@ const Footer = () => {
         <Text style={styles.buttonText}>Downloads</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <FontAwesome5 name="search" size={20} color={color.fontColor}/>
+        <FontAwesome5 name="search" size={20} color={color.fontColor} />
         <Text style={styles.buttonText}>Search</Text>
       </View>
     </View>
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     backgroundColor: color.backgroundColor,
     width: "100%",
     height: 50,
-    bottom: 7,
+    bottom: 0,
     flexDirection: "row",
     borderWidth: 3,
     borderTopColor: color.fontColor,

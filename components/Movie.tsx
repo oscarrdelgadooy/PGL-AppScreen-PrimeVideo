@@ -1,7 +1,7 @@
 import { StyleSheet, View, Image, ImageSourcePropType } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import color from "../theme/color"
+import color from "../theme/color";
 
 type MovieProps = {
   path: ImageSourcePropType;

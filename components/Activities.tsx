@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
-import color from "../theme/color"
+import color from "../theme/color";
 
 type ActivitiesProps = {
   activity: String;

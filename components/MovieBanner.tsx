@@ -5,6 +5,8 @@ import {
   ImageSourcePropType,
   TouchableOpacity,
   Text,
+  StyleProp,
+  TextStyle,
 } from "react-native";
 import React from "react";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
@@ -14,11 +16,12 @@ import color from "../theme/color";
 type MovieBannerProps = {
   path: ImageSourcePropType;
   FuncRandom: () => void;
+  style: StyleProp<TextStyle>;
 };
 
-const MovieBanner = ({ path, FuncRandom }: MovieBannerProps) => {
+const MovieBanner = ({ path, FuncRandom, style }: MovieBannerProps) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <View style={styles.imageContainer}>
         <Image source={path} style={styles.photoSize} />
         <LinearGradient
