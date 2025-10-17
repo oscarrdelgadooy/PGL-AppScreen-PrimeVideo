@@ -1,41 +1,130 @@
-# ⚛️ Atomic Design en PGL-AppScreen-PrimeVideo
+# Atomic Design en PGL-AppScreen-PrimeVideo
 
-Para organizar los elementos visuales de la app, hemos seguido el **principio de Atomic Design**, que permite estructurar los componentes desde los más básicos hasta las pantallas completas, asegurando **reutilización y mantenimiento fácil**.
+## Introducción
 
----
-
-## 🧬 Átomos
-Los **átomos** son los elementos más simples de la interfaz. En nuestra app, usamos tanto componentes core de React Native como nuestros propios átomos.
-
-### Componentes core:
-- `View` → contenedores de layout.  
-- `Text` → textos de cualquier tipo.  
-- `Image` → imágenes.  
-- `TouchableOpacity`→ botones y zonas clicables.  
-- `ScrollView` → listas y desplazamiento.
-- `FontAwesome5` → iconos
+El proyecto **PGL-AppScreen-PrimeVideo** sigue el principio de **Atomic Design**, que permite estructurar los componentes de interfaz desde los más simples hasta las pantallas completas. Este enfoque mejora la **reutilización**, **mantenibilidad** y **coherencia visual** del diseño.
 
 ---
 
-## ⚗️ Moléculas
-Las **moléculas** combinan varios átomos para crear bloques funcionales.
+## Átomos
+
+Los **átomos** son los elementos más pequeños e independientes de la interfaz. En este proyecto se usan tanto componentes nativos de React Native como elementos propios.
+
+### Componentes core usados como átomos:
+
+* `View` → contenedor base de layout.
+* `Text` → texto para títulos o etiquetas.
+* `Image` → representación de películas o banners.
+* `TouchableOpacity` → zonas clicables o botones.
+* `ScrollView` → listas con desplazamiento.
+* `FontAwesome5` → iconos visuales.
+
+### Átomos personalizados:
+
+* **`theme/color.ts`** → define la paleta de colores global.
+* **`data/images.ts`** → contiene las rutas de las imágenes de las películas.
+* **`data/categories.ts`** → define las categorías disponibles en la app.
+
+---
+
+## Moléculas
+
+Las **moléculas** combinan varios átomos para formar bloques funcionales.
 
 ### Ejemplos:
-- `MovieBanner` → combina `Image`, `LinearGradient`, `FontAwesome5` y `Text` para mostrar un banner de película con logo de Prime y botón de opciones.  
-- `Header` → combina `Image` y `FontAwesome5` para mostrar el logo de la aplicación.  
-- `Footer` → combina `FontAwesome5` + `Text` para desglosar las vistas/pantallas de la aplicación.
+
+* **`Header`**
+  Combina `Image` (logo Prime) y `FontAwesome5` (iconos de búsqueda o usuario) para mostrar la cabecera principal.
+
+* **`MovieBanner`**
+  Combina `Image`, `LinearGradient`, `FontAwesome5` y `Text` para mostrar un banner con una película destacada y un botón para cambiarla aleatoriamente.
+  **Props:**
+
+  * `path`: ruta de imagen del banner.
+  * `FuncRandom`: función para cambiar la imagen aleatoriamente.
+
+* **`Footer`**
+  Usa `FontAwesome5` y `Text` para mostrar el menú inferior de navegación.
 
 ---
 
-## 🧫 Organismos
-Los **organismos** son secciones completas que contienen varias moléculas.
+## Organismos
+
+Los **organismos** combinan varias moléculas para crear secciones completas de la interfaz.
 
 ### Ejemplos:
-- `View` → lista de películas en el App.tsx mediante un mapeo de una lista de películas
+
+* **`ListActivities`**
+  Muestra varias categorías (moléculas) obtenidas de `categoriesList`.
+  Usa desplazamiento horizontal (`ScrollView`).
+
+* **`ListMovies`**
+  Incluye un título (`Text`) y una lista de películas (`Image` + `TouchableOpacity`) con desplazamiento horizontal.
+
+* **`ListMoviesExclusive`**
+  Variante del anterior con la sección **"Amazon Originals and Exclusives"**.
+
 ---
 
-## 📱 Páginas
-Las **páginas** son las pantallas finales de la app, donde los datos reales se combinan con la plantilla y los organismos.
+## Plantillas
 
-### Ejemplos:
-- `App` → contiene todos los componentes(moléculas) de mi aplicación.
+Las **plantillas** definen la estructura general de una pantalla, combinando diferentes organismos dentro de un layout coherente.
+
+### Ejemplo principal:
+
+El componente **`App.tsx`** actúa como la plantilla base y estructura la pantalla principal de la app:
+
+```jsx
+Header
+ListActivities
+MovieBanner
+ListMovies
+ListMoviesExclusive
+Footer
+```
+
+Esta jerarquía define la vista principal tipo *Prime Video*.
+
+---
+
+## Páginas
+
+Las **páginas** son instancias concretas de las plantillas, que incluyen datos y lógica de estado.
+
+### Ejemplo:
+
+* **`App`** (página principal)
+  Gestiona el estado local (`useState`) para cambiar el banner aleatoriamente y renderiza todos los componentes según la plantilla.
+
+---
+
+## Resumen jerárquico
+
+```
+Átomos:
+├── Text
+├── Image
+├── View
+├── ScrollView
+├── TouchableOpacity
+├── FontAwesome5
+├── color (theme)
+├── images (data)
+└── categories (data)
+
+Moléculas:
+├── Header
+├── MovieBanner
+└── Footer
+
+Organismos:
+├── ListActivities
+├── ListMovies
+└── ListMoviesExclusive
+
+Plantilla:
+└── App (estructura base de pantalla)
+
+Página:
+└── App (instancia con estado dinámico)
+```
