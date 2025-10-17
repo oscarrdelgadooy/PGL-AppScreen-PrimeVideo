@@ -148,3 +148,5 @@ El componente **MovieBanner**:
 * Es **modular, reutilizable y dinámico**.
 * Permite una interacción directa y simple con el usuario.
 * Mantiene una estructura limpia y escalable dentro del diseño atómico del proyecto.
+
+[📘 Volver al menú principal.](../readme.md)

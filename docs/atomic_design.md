@@ -128,3 +128,5 @@ Plantilla:
 Página:
 └── App (instancia con estado dinámico)
 ```
+
+[📘 Volver al menú principal.](../readme.md)

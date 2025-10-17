@@ -35,3 +35,5 @@ Parámetros principales:
 * **`size`** → tamaño del icono en píxeles.
 * **`color`** → color del icono.
 * **`style`** → permite posicionarlo o aplicarle márgenes personalizados.
+
+[📘 Volver al menú principal.](../readme.md)

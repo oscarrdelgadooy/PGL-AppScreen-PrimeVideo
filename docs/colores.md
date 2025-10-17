@@ -15,3 +15,5 @@ Los cuales se usan importando el fichero Typescript al componente en el que se v
 Ya luego solo con llamar color y llamando a la variable q esta llamando.
 
 ![alt text](/assets/colorExample.png)
+
+[📘 Volver al menú principal.](../readme.md)
